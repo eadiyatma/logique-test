@@ -1,6 +1,15 @@
 <script setup>
 import LayoutComponent from "../components/LayoutComponent.vue";
 import ButtonComponent from "../components/ButtonComponent.vue";
+import { useSearchStore } from "../stores/search";
+import { useRouter } from "vue-router";
+const store = useSearchStore();
+const router = useRouter();
+
+async function searchData() {
+  const data = await store.searchData();
+  if (data) router.push("/result");
+}
 </script>
 
 <template>
@@ -18,10 +27,13 @@ import ButtonComponent from "../components/ButtonComponent.vue";
       </div>
       <div class="flex flex-col gap-3">
         <input
+          v-model="store.search"
           class="placeholder:text-center py-3 px-3 bg-white rounded-full"
           placeholder="Artist / Album / Title"
         />
-        <ButtonComponent transparent> Search </ButtonComponent>
+        <ButtonComponent transparent @click="searchData">
+          Search
+        </ButtonComponent>
       </div>
     </div>
   </LayoutComponent>

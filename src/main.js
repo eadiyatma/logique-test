@@ -6,9 +6,18 @@ import router from './router'
 
 import './assets/main.css'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+const instance = axios.create({
+    baseURL: 'https://itunes.apple.com/search?',
+})
+
+app.use(VueAxios, instance)
