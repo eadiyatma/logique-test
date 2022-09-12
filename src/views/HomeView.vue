@@ -1,0 +1,25 @@
+<script setup>
+import LayoutComponent from "../components/LayoutComponent.vue";
+import ButtonComponent from "../components/ButtonComponent.vue";
+</script>
+
+<template>
+  <LayoutComponent>
+    <div class="px-[30px] py-[26px] flex flex-col justify-between h-screen">
+      <div></div>
+      <div class="flex justify-center">
+        <img
+          alt="Vue logo"
+          class="logo"
+          src="@/assets/logo.svg"
+          width="72"
+          height="83"
+        />
+      </div>
+      <div class="flex flex-col gap-3">
+        <ButtonComponent> Artist / Album / Title </ButtonComponent>
+        <ButtonComponent transparent> Search </ButtonComponent>
+      </div>
+    </div>
+  </LayoutComponent>
+</template>
