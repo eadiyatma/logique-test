@@ -19,7 +19,7 @@ export const useSearchStore = defineStore('search', () => {
           country: 'ID',
         }
       })
-      dataList.value =data.data.result
+      dataList.value = data.data.results;
       return true;
     }catch(e){
       console.log(data);
